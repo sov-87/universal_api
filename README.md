@@ -1,4 +1,5 @@
-= UniversalApi
+Универсальный API
+-----------------
 
 This project provides REST interface for ActiveRecord models - CRUD operations.
 
@@ -9,8 +10,7 @@ Create, update and delete data through ActiveRecord model methods via http reque
 
 This project rocks and uses MIT-LICENSE.
 
-Универсальный API
------------------
+
 Предоставляет доступ с использованием REST по ссылке вида `/universal_api/<класс модели>`
 
 Для поиска используется [ransack](https://github.com/activerecord-hackery/ransack), соответственно можно использовать все его возможности - поиск по полям модели и по ассоциациям (параметр запроса q), сортировка (параметр запроса q[s]), [создание scope-ов и их последующее использование через q[\<наименование scope\>]](https://github.com/activerecord-hackery/ransack#using-scopesclass-methods).
@@ -21,10 +21,10 @@ This project rocks and uses MIT-LICENSE.
 
 Частые задачи и способы их решения
  - необходимо получить данные специальным запросом, причем в запросе не требуются параметры http-запроса и значения из сессии:
-    - создать scope в соответствующей модели
-    - добавить его в ransackable_scopes
-    - если действие не должно быть общедоступным, то создать соответствующий маршрут и направить его на index, в параметрах указав нужный scope. Подробнее про механизм написано [Здесь](https://github.com/activerecord-hackery/ransack#using-scopesclass-methods)
-        ```
+ - создать scope в соответствующей модели
+ - добавить его в ransackable_scopes
+ - если действие не должно быть общедоступным, то создать соответствующий маршрут и направить его на index, в параметрах указав нужный scope. Подробнее про механизм написано [Здесь](https://github.com/activerecord-hackery/ransack#using-scopesclass-methods)
+```
   # у нас есть отдельный контроллер, в котором не переопределен index
   controller '<имя контроллера>' do
     get '<имя scope>', action: 'index', defaults: { q: { <имя scope>: true } }
