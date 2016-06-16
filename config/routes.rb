@@ -1,6 +1,6 @@
 UniversalApi::Engine.routes.draw do
   
-  scope "/:model_name", controller: 'universal_api' do
+  scope "/:model_name", controller: 'base' do
     get '/', action: 'index'
     get '/:id', action: 'show'
     post '/', action: 'create'

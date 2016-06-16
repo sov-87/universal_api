@@ -1,5 +1,5 @@
 module UniversalApi
-  class UniversalApiController < UniversalApi::ApplicationController
+  class BaseController < UniversalApi::ApplicationController
     include UniversalApi::Controller
     
     before_action :prepare_model, only: [:index, :show, :create, :update, :destroy]
