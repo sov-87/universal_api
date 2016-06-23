@@ -8,16 +8,29 @@ All other work from building queries with help of [ransack](https://github.com/a
 up to generating JSON or XML response UniversalApi will do for you.
 Create, update and delete data through ActiveRecord model methods via http requests.
 
-This project rocks and uses MIT-LICENSE.
+You can access models via REST by url `/universal_api/<класс модели>`.
+
+Search is provided by [ransack](https://github.com/activerecord-hackery/ransack), so you can access all of it's features - search by model's fields (query parameter q), sorting (query parameter q[s]), [creating and using scopes using q[\<scope name\>]](https://github.com/activerecord-hackery/ransack#using-scopesclass-methods).
+
+Also you can limit result by setting query param `limit` and explicity set result columns with `select[]`.
+By default you can access only columns of current model's table,
+but you can override method `extra_select_values` in your child controller.
 
 
 Предоставляет доступ с использованием REST по ссылке вида `/universal_api/<класс модели>`
 
-Для поиска используется [ransack](https://github.com/activerecord-hackery/ransack), соответственно можно использовать все его возможности - поиск по полям модели и по ассоциациям (параметр запроса q), сортировка (параметр запроса q[s]), [создание scope-ов и их последующее использование через q[\<наименование scope\>]](https://github.com/activerecord-hackery/ransack#using-scopesclass-methods).
+Для поиска используется [ransack](https://github.com/activerecord-hackery/ransack),
+соответственно можно использовать все его возможности - поиск по полям модели и по ассоциациям (параметр запроса q),
+сортировка (параметр запроса q[s]),
+[создание scope-ов и их последующее использование через q[\<наименование scope\>]](https://github.com/activerecord-hackery/ransack#using-scopesclass-methods).
 
-Если необходимо передавать параметры в ransack как с клиента, так и задавать в маршрутах, то надо использовать в маршрутах параметр q_defaults для передачи параметров.
+Если необходимо передавать параметры в ransack как с клиента, так и задавать в маршрутах,
+то надо использовать в маршрутах параметр q_defaults для передачи параметров.
 
-Также реализованы ограничение количества записей с помощью параметра запроса limit и указание столбцов для выдачи с помощью параметра select[]. По-умолчанию для выбора доступны только столбцы текущей таблицы, однако можно переопределить метод extra_select_values в контроллере, унаследованном от контроллера универсального API, для задания любых значений.
+Также реализованы ограничение количества записей с помощью параметра запроса `limit` и указание столбцов для выдачи с помощью параметра select[].
+По-умолчанию для выбора доступны только столбцы текущей таблицы,
+однако можно переопределить метод extra_select_values в контроллере,
+унаследованном от контроллера универсального API, для задания любых значений.
 
 Частые задачи и способы их решения
  - необходимо получить данные специальным запросом, причем в запросе не требуются параметры http-запроса и значения из сессии:
@@ -43,3 +56,5 @@ This project rocks and uses MIT-LICENSE.
       defaults: { model_name: 'класс модели', q: { <имя scope>: true } }
   end
 ```
+
+This project rocks and uses MIT-LICENSE)
