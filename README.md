@@ -1,7 +1,7 @@
-https://travis-ci.org/sov-87/universal_api.svg
-
 Универсальный API
 -----------------
+[![Build Status]((https://travis-ci.org/sov-87/universal_api.svg))]
+(https://travis-ci.org/sov-87/universal_api)
 
 This project provides REST interface for ActiveRecord models - CRUD operations.
 
