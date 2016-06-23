@@ -1,3 +1,5 @@
+https://travis-ci.org/sov-87/universal_api.svg
+
 Универсальный API
 -----------------
 
